@@ -1,0 +1,78 @@
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  
+body
+  background: linear-gradient(rgb(250,243,255), rgb(235,229,240))
+  height: 100vh
+  display: flex
+  justify-content: center
+  align-items: center
+  font-family: Montserrat
+
+.weather-box
+  position: relative
+  border-radius: 6.25px
+  box-shadow: 0 1rem 4.5rem rgba(0, 0, 0, 0.05)
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: space-around
+  background: #fff
+  width: 400px
+  height: 218px
+  padding: 10px
+  cursor: pointer
+  transition: .3s all ease
+  p.country
+    color: #383838
+    font-size: 21px
+  p.description
+    color: #4CB6B0
+  .temperature-box
+    width: 100%
+    display: flex
+    justify-content: space-around
+    align-items: center
+    .degree
+      color: #2C7B79
+      font-size: 1.98em
+  &:hover
+    box-shadow: 0 0.4rem 0.7rem rgba(0, 0, 0, 0.05)
+    transform: translateY(-2.5px)
+  &::before
+    content: ""
+    width: 100%
+    height: 100%
+    background: #fff
+    border-radius: 6.25px
+    position: absolute
+  &.done::before
+    display: none
+  .loader
+    position: absolute
+    width: 45px
+    height: 45px
+    border: 4.5px solid transparent
+    border-radius: 50%
+    border-top-color: rgba(0, 0, 0, 0.49)
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    animation: 1.5s spin infinite linear
+    &.done
+      visibility: hidden
+      opacity: 0
+
+.error
+  position: absolute
+  z-index: 3
+  display: none
+  color: #F93838
+
+@keyframes spin
+  from
+    transform: translate(-50%, -50%) rotate(0deg)
+  to
+    transform: translate(-50%, -50%) rotate(360deg)
