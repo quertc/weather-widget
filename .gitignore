@@ -1,0 +1,6 @@
+# Logs
+logs
+*.log
+
+# Node Dependencies
+node_modules
