@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
       longitude = position.coords.longitude
 
       const proxy = 'https://cors-anywhere.herokuapp.com/'
-      const api = `${proxy}https://api.darksky.net/forecast/[key]/${latitude},${longitude}`; // eplace [key] with your dakrsky API private key
+      const api = `${proxy}https://api.darksky.net/forecast/[key]/${latitude},${longitude}`; // replace [key] with your dakrsky API private key
 
       async function main(api) {
         let response = await fetch(api);
