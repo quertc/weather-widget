@@ -1,4 +1,4 @@
-const APIKey = 'fba61eccd693a3c222a2f3f8b03cd247'
+const APIKey = '';  // Enter the Dark Sky API secret key here
 
 window.addEventListener('load', () => {
   let latitude;
