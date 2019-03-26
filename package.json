@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "Plain weather widget on vanilla js",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "gulp"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
