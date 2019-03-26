@@ -1,7 +1,13 @@
 # Weather widget
 
-The project uses a simple gulp build, which compiles the sass into css. There is no live server.
+The project uses a simple gulp build as well as sass.
 
-* To make the widget work, you need:
-  * In the app/js/index.js on line 14 replace [key] with your special [Dark Sky API](https://darksky.net/dev) key
-  * Run the index.html in the browser or create a live server!
+Clone the repository and run the application:
+```shell
+npm i
+npm start
+```
+
+_To make the widget work, you need:_
+  1. In the app/js/index.js on the first line assign a special [Dark Sky API](https://darksky.net/dev) key to the "APIKey" variable
+  2. After all these steps, you can run the application on localhost:3000
