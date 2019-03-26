@@ -1,13 +1,14 @@
 {
   "name": "weather-widget",
   "version": "0.1.0",
-  "description": "",
+  "description": "Plain weather widget on vanilla js",
   "main": "index.js",
   "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.26.3",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-sass": "^4.0.2"
