@@ -1,6 +1,12 @@
-# Weather widget
+# Simple weather widget
 
-The project uses a simple gulp build as well as sass.
+![Screenshot](https://github.com/quertc/weather-widget/blob/master/app/image/img.PNG)
+
+## Description and installation
+
+The project uses a simple **Gulp** build with a minimum of plugins as well as **SASS**.
+
+**This project uses the [Dark Sky API](https://darksky.net/dev)**
 
 Clone the repository and run the application:
 ```shell
