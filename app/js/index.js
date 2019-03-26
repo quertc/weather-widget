@@ -1,6 +1,6 @@
 const APIKey = '';  // Enter the Dark Sky API secret key here
 
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
   let latitude;
   let longitude;
   let degree = document.querySelector('.degree');
@@ -16,30 +16,43 @@ window.addEventListener('load', () => {
       const api = `${proxy}https://api.darksky.net/forecast/${APIKey}/${latitude},${longitude}`;
 
       async function main(api) {
-        let response = await fetch(api);
-        let data = await response.json();
-        let {temperature, summary, icon} = data.currently;
+        try {
+          let response = await fetch(api);
+          let data = await response.json();
 
-        let celsius = Math.round((temperature - 32) * (5 / 9));
+          let {temperature, summary, icon} = data.currently;
 
-        degree.textContent = `${celsius}ºC`;
-        description.textContent = summary;
-        timezone.textContent = data.timezone;
-        setIcon(icon, document.querySelector('.icon'));
+          let celsius = Math.round((temperature - 32) * (5 / 9));
+  
+          degree.textContent = `${celsius}ºC`;
+          description.textContent = summary;
+          timezone.textContent = data.timezone;
+          setIcon(icon, document.querySelector('.icon'));
+
+          if (response.ok) {
+            setTimeout(() => {
+              document.querySelector('.weather-box').classList.add('done');
+              document.querySelector('.weather-box .loader').classList.add('done');
+            }, 1000); 
+          };
+
+        } catch(error) {
+          document.querySelector('.weather-box .loader').classList.add('done');
+          document.querySelector('.error-log').style.display = 'block';
+          console.error(error);
+        };
       };
 
       main(api);
-
-      setTimeout(() => {
-        document.querySelector('.weather-box').classList.add('done');
-        document.querySelector('.weather-box .loader').classList.add('done');
-      }, 1000);     
+    
     }, error => {
       if(error.PERMISSION_DENIED) {
         document.querySelector('.weather-box .loader').classList.add('done');
         document.querySelector('.error').style.display = 'block';
-      }
-    })
+      };
+      
+      console.error(error);
+    });
   } else {
     alert('Your browser does not support location!');
   };
