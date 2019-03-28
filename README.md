@@ -17,4 +17,8 @@ After all these steps, you can run the application on [localhost:3000](http://lo
 
 
 _Do not forget that the application worked correctly, you need:_
-* In the app/js/index.js on the first line assign a special [Dark Sky API](https://darksky.net/dev) key to the "APIKey" variable
+
+In the app/js/index.js on the first line assign a special [Dark Sky API](https://darksky.net/dev) key to the **APIKey** variable
+```JavaScript
+const APIKey = '';  // Enter the Dark Sky API secret key here
+```
