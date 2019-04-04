@@ -1,11 +1,11 @@
-const APIKey = '';  // Enter the Dark Sky API secret key here
+const APIKey = 'fba61eccd693a3c222a2f3f8b03cd247';  // Enter the Dark Sky API secret key here
 
 window.addEventListener('DOMContentLoaded', () => {
   let latitude;
   let longitude;
-  let degree = document.querySelector('.degree');
-  let description = document.querySelector('.description');
-  let timezone = document.querySelector('.country');
+  let degree = document.querySelector('.temperature-box__degree');
+  let description = document.querySelector('.weather-box__description');
+  let timezone = document.querySelector('.weather-box__country');
   
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {     
@@ -27,18 +27,18 @@ window.addEventListener('DOMContentLoaded', () => {
           degree.textContent = `${celsius}ºC`;
           description.textContent = summary;
           timezone.textContent = data.timezone;
-          setIcon(icon, document.querySelector('.icon'));
+          setIcon(icon, document.querySelector('.temperature-box__icon'));
 
           if (response.ok) {
             setTimeout(() => {
               document.querySelector('.weather-box').classList.add('done');
-              document.querySelector('.weather-box .loader').classList.add('done');
+              document.querySelector('.weather-box__loader').classList.add('done');
             }, 1000); 
           };
 
         } catch(error) {
-          document.querySelector('.weather-box .loader').classList.add('done');
-          document.querySelector('.error-log').style.display = 'block';
+          document.querySelector('.weather-box__loader').classList.add('done');
+          document.querySelector('.weather-box__error-log').style.display = 'block';
           console.error(error);
         };
       };
@@ -47,8 +47,8 @@ window.addEventListener('DOMContentLoaded', () => {
     
     }, error => {
       if(error.PERMISSION_DENIED) {
-        document.querySelector('.weather-box .loader').classList.add('done');
-        document.querySelector('.error').style.display = 'block';
+        document.querySelector('.weather-box__loader').classList.add('done');
+        document.querySelector('.weather-box__error').style.display = 'block';
       };
       
       console.error(error);

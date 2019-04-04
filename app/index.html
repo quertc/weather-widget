@@ -12,16 +12,17 @@
   <noscript>You need to enable JavaScript to run this app.</noscript>
 
   <section class="weather-box">
-   <div class="loader"></div>
+    <div class="weather-box__loader"></div>
 
-    <p class="country"></p>
+    <p class="weather-box__country"></p>
     <div class="temperature-box">
-      <canvas class="icon" width="74" height="74"></canvas>
-      <div class="degree"></div>
+      <canvas class="temperature-box__icon" width="74" height="74"></canvas>
+      <div class="temperature-box__degree"></div>
     </div>
-    <p class="description"></p>
-    <div class="error">You must have location enabled</div>
-    <div class="error-log">An error occurred! Details in the browser console ...</div>
+    <p class="weather-box__description"></p>
+    
+    <div class="weather-box__error">You must have location enabled</div>
+    <div class="weather-box__error-log">An error occurred! Details in the browser console ...</div>
   </section>
 
   <script src="js/skycons.js"></script>

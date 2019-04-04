@@ -25,17 +25,17 @@ body
   padding: 10px
   cursor: pointer
   transition: .3s all ease
-  p.country
+  p.weather-box__country
     color: #383838
     font-size: 21px
-  p.description
+  p.weather-box__description
     color: #4CB6B0
   .temperature-box
     width: 100%
     display: flex
     justify-content: space-around
     align-items: center
-    .degree
+    .temperature-box__degree
       color: #2C7B79
       font-size: 1.98em
   &:hover
@@ -50,7 +50,7 @@ body
     position: absolute
   &.done::before
     display: none
-  .loader
+  .weather-box__loader
     position: absolute
     width: 45px
     height: 45px
@@ -65,7 +65,7 @@ body
       visibility: hidden
       opacity: 0
 
-.error
+.weather-box__error
   position: absolute
   z-index: 3
   display: none
@@ -73,7 +73,7 @@ body
   text-align: center
   padding: 5px
 
-.error-log
+.weather-box__error-log
   position: absolute
   z-index: 3
   display: none

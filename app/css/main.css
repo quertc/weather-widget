@@ -58,12 +58,12 @@ body {
   transition: .3s all ease;
 }
 
-.weather-box p.country {
+.weather-box p.weather-box__country {
   color: #383838;
   font-size: 21px;
 }
 
-.weather-box p.description {
+.weather-box p.weather-box__description {
   color: #4CB6B0;
 }
 
@@ -82,7 +82,7 @@ body {
           align-items: center;
 }
 
-.weather-box .temperature-box .degree {
+.weather-box .temperature-box .temperature-box__degree {
   color: #2C7B79;
   font-size: 1.98em;
 }
@@ -109,7 +109,7 @@ body {
   display: none;
 }
 
-.weather-box .loader {
+.weather-box .weather-box__loader {
   position: absolute;
   width: 45px;
   height: 45px;
@@ -126,12 +126,12 @@ body {
           animation: 1.5s spin infinite linear;
 }
 
-.weather-box .loader.done {
+.weather-box .weather-box__loader.done {
   visibility: hidden;
   opacity: 0;
 }
 
-.error {
+.weather-box__error {
   position: absolute;
   z-index: 3;
   display: none;
@@ -140,7 +140,7 @@ body {
   padding: 5px;
 }
 
-.error-log {
+.weather-box__error-log {
   position: absolute;
   z-index: 3;
   display: none;
