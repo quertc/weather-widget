@@ -1,5 +1,5 @@
 # Simple weather widget
-![Screenshot](https://github.com/quertc/weather-widget/blob/master/app/image/img.PNG)
+![Screenshot](https://github.com/quertc/weather-widget/blob/img.PNG)
 
 ### Description and installation
 This project uses a simple Gulp build to compile SASS into CSS.  
