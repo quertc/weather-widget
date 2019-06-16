@@ -10,11 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "tar": ">=4.4.2"
+    "tar": ">=4.4.10"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.5",
-    "gulp": "^4.0.1",
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-sass": "^4.0.2"
   }
