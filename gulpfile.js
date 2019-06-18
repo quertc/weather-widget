@@ -11,7 +11,7 @@ gulp.task('sass', () => {
       .pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', () => {
   browserSync({
       server: {
           baseDir: 'app'
@@ -20,7 +20,7 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('code', function() {
+gulp.task('code', () => {
   return gulp.src('app/*.html')
   .pipe(browserSync.reload({ stream: true }));
 });

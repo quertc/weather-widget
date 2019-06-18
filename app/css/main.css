@@ -53,9 +53,9 @@ body {
   height: 218px;
   padding: 10px;
   cursor: pointer;
-  -webkit-transition: .3s all ease;
-  -o-transition: .3s all ease;
-  transition: .3s all ease;
+  -webkit-transition: 0.3s all;
+  -o-transition: 0.3s all;
+  transition: 0.3s all;
 }
 
 .weather-box p.weather-box__country {
