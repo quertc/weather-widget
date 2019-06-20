@@ -5,10 +5,10 @@ let gulp         = require('gulp'),
 
 gulp.task('sass', () => {
   return gulp.src(['app/sass/**/*.sass', 'app/sass/**/*.scss'])
-      .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+      .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
       .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
       .pipe(gulp.dest('app/css'))
-      .pipe(browserSync.reload({stream: true}));
+      .pipe(browserSync.reload({ stream: true }));
 });
 
 gulp.task('browser-sync', () => {
@@ -25,9 +25,15 @@ gulp.task('code', () => {
   .pipe(browserSync.reload({ stream: true }));
 });
 
+gulp.task('scripts', () => {
+  return gulp.src('app/js/**/*.js')
+  .pipe(browserSync.reload({ stream: true }));
+});
+
 gulp.task('watch', () => {
   gulp.watch(['app/sass/**/*.sass', 'app/sass/**/*.scss'], gulp.parallel('sass'));
   gulp.watch('app/*.html', gulp.parallel('code'));
+  gulp.watch('app/js/**/*.js', gulp.parallel('scripts'));
 });
 
 gulp.task('default', gulp.parallel('sass', 'browser-sync', 'watch'));
