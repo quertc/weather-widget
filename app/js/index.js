@@ -1,3 +1,5 @@
+'use strict';
+
 const APIKey = '';  // Enter the Dark Sky API secret key here
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -46,7 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
       main(api);
     
     }, error => {
-      if(error.PERMISSION_DENIED) {
+      if (error.PERMISSION_DENIED) {
         document.querySelector('.weather-box__loader').classList.add('done');
         document.querySelector('.weather-box__error').style.display = 'block';
       };
