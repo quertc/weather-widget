@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
           let {temperature, summary, icon} = data.currently;
 
-          let celsius = Math.round( (temperature - 32) * (5 / 9) );
+          let celsius = Math.round((temperature - 32) * (5 / 9));
   
           degree.textContent = `${celsius}ºC`;
           description.textContent = summary;
