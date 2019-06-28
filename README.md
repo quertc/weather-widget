@@ -14,7 +14,7 @@ This project uses a simple Gulp build to compile SASS into CSS.
 2. Install Dependencies
 
 	```
-	npm i
+	npm install
 	```
 3. Run the app
 
