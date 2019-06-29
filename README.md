@@ -1,33 +1,20 @@
 # Simple weather widget
 ![Screenshot](https://github.com/quertc/weather-widget/blob/master/img.PNG)
 
-### Description and installation
-This project uses a simple Gulp build to compile SASS into CSS.  
-**The app works using the [Dark Sky API](https://darksky.net/dev)**
+## Description
+This small project uses Gulp to compile SASS into CSS.  
+**The application uses the [Dark Sky API](https://darksky.net/dev)**
 
-1. Download or clone the repository
+### Installing
+Download or clone the repository and run
 
-	```
-	git clone https://github.com/quertc/weather-widget.git
-	cd weather-widget
-	```
-2. Install Dependencies
+```
+npm install
+npm run start
+```
 
-	```
-	npm install
-	```
-3. Run the app
+_After these commands, you can go to [localhost:3000](http://localhost:3000/) and test the application. But don't forget in app/js/index.js on the third line assign the value of the secret [Dark Sky API](https://darksky.net/dev) key to the **APIkey** variable_
 
-	```
-	npm run start
-	```
-  
-After all these steps, you can run the application on [localhost:3000](http://localhost:3000/)
-
-.
-
-_Do not forget that the application worked correctly, you need:_  
-In the app/js/index.js on the third line, set the **APIKey** variable to the value of your special key [Dark Sky API](https://darksky.net/dev)
 ```JavaScript
 const APIKey = '';  // Enter the Dark Sky API secret key here
 ```
