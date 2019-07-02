@@ -1,7 +1,7 @@
 {
   "name": "weather-widget",
   "version": "1.0.0",
-  "description": "Plain weather widget on vanilla js",
+  "description": "Simple weather widget",
   "main": "index.js",
   "scripts": {
     "start": "gulp"

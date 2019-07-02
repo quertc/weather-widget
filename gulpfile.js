@@ -8,7 +8,9 @@ let gulp         = require('gulp'),
 gulp.task('sass', () => {
   return gulp.src(['app/sass/**/*.sass', 'app/sass/**/*.scss'])
       .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
-      .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
+      .pipe(autoprefixer({
+        browsers: ['last 4 versions']
+      }))
       .pipe(gulp.dest('app/css'))
       .pipe(browserSync.reload({ stream: true }));
 });
@@ -22,13 +24,13 @@ gulp.task('browser-sync', () => {
   });
 });
 
-gulp.task('code', () => {
-  return gulp.src('app/*.html')
+gulp.task('scripts', () => {
+  return gulp.src('app/js/**/*.js')
   .pipe(browserSync.reload({ stream: true }));
 });
 
-gulp.task('scripts', () => {
-  return gulp.src('app/js/**/*.js')
+gulp.task('code', () => {
+  return gulp.src('app/*.html')
   .pipe(browserSync.reload({ stream: true }));
 });
 

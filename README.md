@@ -2,7 +2,7 @@
 ![Screenshot](https://github.com/quertc/weather-widget/blob/master/img.PNG)
 
 ## Description
-This small project uses Gulp to compile SASS into CSS.  
+This small project uses Gulp to compile SASS into CSS with the addition of vendor prefixes.  
 **The application uses the [Dark Sky API](https://darksky.net/dev)**
 
 ### Installing
