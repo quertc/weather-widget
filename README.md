@@ -2,8 +2,7 @@
 ![Screenshot](https://github.com/quertc/weather-widget/blob/master/img.PNG)
 
 ## Description
-This small project uses Gulp to compile SASS into CSS with the addition of vendor prefixes.  
-**The application uses the [Dark Sky API](https://darksky.net/dev)**
+The application uses the [Dark Sky API](https://darksky.net/dev) and Gulp to compile SASS into CSS with the addition of vendor prefixes.
 
 ### Installing
 Download or clone the repository and run
@@ -12,7 +11,7 @@ npm install
 npm run start
 ```
 
-_After these commands, you can go to [localhost:3000](http://localhost:3000/) and test the application. But don't forget in app/js/index.js on the third line assign the value of the secret [Dark Sky API](https://darksky.net/dev) key to the **APIKey** variable, to make the application work correctly_
+_After these commands, the application will be available at [localhost:3000](http://localhost:3000/), but don't forget in app/js/index.js on the 3rd line to assign the value of the [Dark Sky API](https://darksky.net/dev) secret key to the variable "APIKey"._
 ```JavaScript
 const APIKey = '';  // Enter the Dark Sky API secret key here
 ```
