@@ -17,5 +17,9 @@
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-sass": "^4.0.2"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 4 versions"
+  ]
 }

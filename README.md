@@ -1,5 +1,5 @@
 # Simple weather widget
-![Screenshot](https://github.com/quertc/weather-widget/blob/master/img.PNG)
+![Screenshot](https://github.com/quertc/weather-widget/blob/master/preview.PNG)
 
 ## Description
 The application uses the [Dark Sky API](https://darksky.net/dev) and Gulp to compile SASS into CSS with the addition of vendor prefixes.

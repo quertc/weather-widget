@@ -56,7 +56,7 @@ window.addEventListener('DOMContentLoaded', () => {
       console.error(error);
     });
   } else {
-    alert('Your browser does not support location!');
+    alert('Your browser doesn\'t support location!');
   };
 
   function setIcon(icon, iconID) {

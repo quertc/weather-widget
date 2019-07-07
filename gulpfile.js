@@ -8,9 +8,7 @@ let gulp         = require('gulp'),
 gulp.task('sass', () => {
   return gulp.src(['app/sass/**/*.sass', 'app/sass/**/*.scss'])
       .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
-      .pipe(autoprefixer({
-        browsers: ['last 4 versions']
-      }))
+      .pipe(autoprefixer())
       .pipe(gulp.dest('app/css'))
       .pipe(browserSync.reload({ stream: true }));
 });
