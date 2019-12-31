@@ -8,9 +8,9 @@ window.addEventListener('DOMContentLoaded', () => {
   let degree = document.querySelector('.temperature-box__degree');
   let description = document.querySelector('.weather-box__description');
   let timezone = document.querySelector('.weather-box__country');
-  
+
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {     
+    navigator.geolocation.getCurrentPosition(position => {
       latitude = position.coords.latitude;
       longitude = position.coords.longitude;
 
@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
           let {temperature, summary, icon} = data.currently;
 
           let celsius = Math.round((temperature - 32) * (5 / 9));
-  
+
           degree.textContent = `${celsius}ºC`;
           description.textContent = summary;
           timezone.textContent = data.timezone;
@@ -35,34 +35,34 @@ window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
               document.querySelector('.weather-box').classList.add('done');
               document.querySelector('.weather-box__loader').classList.add('done');
-            }, 1000); 
-          };
+            }, 1000);
+          }
 
         } catch(error) {
           document.querySelector('.weather-box__loader').classList.add('done');
           document.querySelector('.weather-box__error-log').style.display = 'block';
           console.error(error);
         };
-      };
+      }
 
       main(api);
-    
+
     }, error => {
       if (error.PERMISSION_DENIED) {
         document.querySelector('.weather-box__loader').classList.add('done');
         document.querySelector('.weather-box__error').style.display = 'block';
-      };
-      
+      }
+
       console.error(error);
     });
   } else {
     alert('Your browser doesn\'t support location!');
-  };
+  }
 
   function setIcon(icon, iconID) {
     const skycons = new Skycons({color: '#474747'});
     const currentIcon = icon.replace(/-/g, "_").toUpperCase();
     skycons.play();
     return skycons.set(iconID, Skycons[currentIcon]);
-  };
+  }
 });
