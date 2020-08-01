@@ -1,6 +1,6 @@
 /* global Skycons */
 
-const APIKey = 'c6b9c8dd9339e4921fffc9ecf608bff3'; // Enter the Dark Sky API secret key here
+const APIKey = ''; // Enter the Dark Sky API secret key here
 
 function setIcon(icon, iconID) {
   const skycons = new Skycons({ color: '#474747' });
