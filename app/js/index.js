@@ -1,68 +1,69 @@
-'use strict';
+/* global Skycons */
 
-const APIKey = '';  // Enter the Dark Sky API secret key here
+const APIKey = 'c6b9c8dd9339e4921fffc9ecf608bff3'; // Enter the Dark Sky API secret key here
 
-window.addEventListener('DOMContentLoaded', () => {
-  let latitude;
-  let longitude;
-  let degree = document.querySelector('.temperature-box__degree');
-  let description = document.querySelector('.weather-box__description');
-  let timezone = document.querySelector('.weather-box__country');
+function setIcon(icon, iconID) {
+  const skycons = new Skycons({ color: '#474747' });
+  const currentIcon = icon.replace(/-/g, '_').toUpperCase();
+  skycons.play();
+  return skycons.set(iconID, Skycons[currentIcon]);
+}
+
+window.addEventListener('load', () => {
+  const degree = document.querySelector('.temperature-box__degree');
+  const description = document.querySelector('.weather-box__description');
+  const timezone = document.querySelector('.weather-box__country');
+  const errorText = document.querySelector('.weather-box__error');
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
-      latitude = position.coords.latitude;
-      longitude = position.coords.longitude;
+      const { latitude, longitude } = position.coords;
 
       const proxy = 'https://cors-anywhere.herokuapp.com/';
-      const api = `${proxy}https://api.darksky.net/forecast/${APIKey}/${latitude},${longitude}`;
+      const url = `${proxy}https://api.darksky.net/forecast/${APIKey}/${latitude},${longitude}`;
 
       async function main(api) {
         try {
-          let response = await fetch(api);
-          let data = await response.json();
+          const response = await fetch(api);
+          const data = await response.json();
 
-          let {temperature, summary, icon} = data.currently;
+          const { temperature, summary, icon } = data.currently;
 
-          let celsius = Math.round((temperature - 32) * (5 / 9));
+          const celsius = Math.round((temperature - 32) * (5 / 9));
 
           degree.textContent = `${celsius}ºC`;
           description.textContent = summary;
           timezone.textContent = data.timezone;
+
           setIcon(icon, document.querySelector('.temperature-box__icon'));
 
           if (response.ok) {
             setTimeout(() => {
               document.querySelector('.weather-box').classList.add('done');
               document.querySelector('.weather-box__loader').classList.add('done');
-            }, 1000);
+            }, 500);
           }
+        } catch (error) {
+          errorText.textContent = 'An error occurred during the request.';
 
-        } catch(error) {
           document.querySelector('.weather-box__loader').classList.add('done');
-          document.querySelector('.weather-box__error-log').style.display = 'block';
-          console.error(error);
-        };
+          document.querySelector('.weather-box__error').style.display = 'block';
+        }
       }
 
-      main(api);
-
+      main(url);
     }, error => {
       if (error.PERMISSION_DENIED) {
+        errorText.textContent = 'You must have location enabled.';
+
         document.querySelector('.weather-box__loader').classList.add('done');
         document.querySelector('.weather-box__error').style.display = 'block';
       }
-
-      console.error(error);
     });
   } else {
-    alert('Your browser doesn\'t support location!');
-  }
+    errorText.textContent = 'Your browser doesn\'t support location!';
 
-  function setIcon(icon, iconID) {
-    const skycons = new Skycons({color: '#474747'});
-    const currentIcon = icon.replace(/-/g, "_").toUpperCase();
-    skycons.play();
-    return skycons.set(iconID, Skycons[currentIcon]);
+    document.querySelector('.weather-box__loader').classList.add('done');
+    document.querySelector('.weather-box__error').style.display = 'block';
   }
 });

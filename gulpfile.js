@@ -1,36 +1,28 @@
-'use strict';
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const browserSync = require('browser-sync');
 
-let gulp         = require('gulp'),
-    sass         = require('gulp-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    browserSync  = require('browser-sync');
-
-gulp.task('sass', () => {
-  return gulp.src(['app/sass/**/*.sass', 'app/sass/**/*.scss'])
-      .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
-      .pipe(autoprefixer())
-      .pipe(gulp.dest('app/css'))
-      .pipe(browserSync.reload({ stream: true }));
-});
+gulp.task('sass', () => gulp.src(['app/sass/**/*.sass', 'app/sass/**/*.scss'])
+  .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+  .pipe(autoprefixer())
+  .pipe(gulp.dest('app/css'))
+  .pipe(browserSync.reload({ stream: true })));
 
 gulp.task('browser-sync', () => {
   browserSync({
-      server: {
-          baseDir: 'app'
-      },
-      notify: false
+    server: {
+      baseDir: 'app',
+    },
+    notify: false,
   });
 });
 
-gulp.task('scripts', () => {
-  return gulp.src('app/js/**/*.js')
-  .pipe(browserSync.reload({ stream: true }));
-});
+gulp.task('scripts', () => gulp.src('app/js/**/*.js')
+  .pipe(browserSync.reload({ stream: true })));
 
-gulp.task('code', () => {
-  return gulp.src('app/*.html')
-  .pipe(browserSync.reload({ stream: true }));
-});
+gulp.task('code', () => gulp.src('app/*.html')
+  .pipe(browserSync.reload({ stream: true })));
 
 gulp.task('watch', () => {
   gulp.watch(['app/sass/**/*.sass', 'app/sass/**/*.scss'], gulp.parallel('sass'));
