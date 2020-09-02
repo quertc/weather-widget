@@ -9,5 +9,5 @@
     "linebreak-style": ["error", "windows"],
     "arrow-parens": ["error", "as-needed"],
     "camelcase": "off"
-  },
+  }
 }
