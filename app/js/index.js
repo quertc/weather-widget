@@ -6,6 +6,7 @@ function setIcon(icon, iconID) {
   const skycons = new Skycons({ color: '#474747' });
   const currentIcon = icon.replace(/-/g, '_').toUpperCase();
   skycons.play();
+
   return skycons.set(iconID, Skycons[currentIcon]);
 }
 
@@ -28,7 +29,6 @@ window.addEventListener('load', () => {
           const data = await response.json();
 
           const { temperature, summary, icon } = data.currently;
-
           const celsius = Math.round((temperature - 32) * (5 / 9));
 
           degree.textContent = `${celsius}ºC`;
