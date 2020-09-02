@@ -1,6 +1,6 @@
 /* global Skycons */
 
-const APIKey = ''; // Enter the Dark Sky API secret key here
+const apiKey = ''; // Enter the Dark Sky API secret key here
 
 function setIcon(icon, iconID) {
   const skycons = new Skycons({ color: '#474747' });
@@ -21,7 +21,7 @@ window.addEventListener('load', () => {
       const { latitude, longitude } = position.coords;
 
       const proxy = 'https://cors-anywhere.herokuapp.com/';
-      const url = `${proxy}https://api.darksky.net/forecast/${APIKey}/${latitude},${longitude}`;
+      const uri = `${proxy}https://api.darksky.net/forecast/${apiKey}/${latitude},${longitude}`;
 
       async function main(api) {
         try {
@@ -43,7 +43,7 @@ window.addEventListener('load', () => {
               document.querySelector('.weather-box__loader').classList.add('done');
             }, 500);
           }
-        } catch (error) {
+        } catch (e) {
           errorText.textContent = 'An error occurred during the request.';
 
           document.querySelector('.weather-box__loader').classList.add('done');
@@ -51,9 +51,9 @@ window.addEventListener('load', () => {
         }
       }
 
-      main(url);
-    }, error => {
-      if (error.PERMISSION_DENIED) {
+      main(uri);
+    }, e => {
+      if (e.PERMISSION_DENIED) {
         errorText.textContent = 'You must have location enabled.';
 
         document.querySelector('.weather-box__loader').classList.add('done');
