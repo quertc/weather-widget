@@ -10,60 +10,59 @@ function setIcon(icon, iconID) {
   return skycons.set(iconID, Skycons[currentIcon]);
 }
 
-window.addEventListener('load', () => {
-  const degree = document.querySelector('.temperature-box__degree');
-  const description = document.querySelector('.weather-box__description');
-  const timezone = document.querySelector('.weather-box__country');
-  const errorText = document.querySelector('.weather-box__error');
+const loader = document.querySelector('.weather-widget__loader');
+const timezone = document.querySelector('.weather-widget__country');
+const degree = document.querySelector('.weather-widget__temperature-degree');
+const description = document.querySelector('.weather-widget__description');
+const error = document.querySelector('.weather-widget__error');
 
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
-      const { latitude, longitude } = position.coords;
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(position => {
+    const { latitude, longitude } = position.coords;
 
-      const proxy = 'https://cors-anywhere.herokuapp.com/';
-      const uri = `${proxy}https://api.darksky.net/forecast/${apiKey}/${latitude},${longitude}`;
+    const proxy = 'https://cors-anywhere.herokuapp.com/';
+    const uri = `${proxy}https://api.darksky.net/forecast/${apiKey}/${latitude},${longitude}`;
 
-      async function main(api) {
-        try {
-          const response = await fetch(api);
-          const data = await response.json();
+    async function main(api) {
+      try {
+        const response = await fetch(api);
+        const data = await response.json();
 
-          const { temperature, summary, icon } = data.currently;
-          const celsius = Math.round((temperature - 32) * (5 / 9));
+        const { temperature, summary, icon } = data.currently;
+        const celsius = Math.round((temperature - 32) * (5 / 9));
 
-          degree.textContent = `${celsius}ºC`;
-          description.textContent = summary;
-          timezone.textContent = data.timezone;
+        timezone.textContent = data.timezone;
+        degree.textContent = `${celsius}ºC`;
+        description.textContent = summary;
 
-          setIcon(icon, document.querySelector('.temperature-box__icon'));
+        setIcon(icon, document.querySelector('.weather-widget__temperature-icon'));
 
-          if (response.ok) {
-            setTimeout(() => {
-              document.querySelector('.weather-box').classList.add('done');
-              document.querySelector('.weather-box__loader').classList.add('done');
-            }, 500);
-          }
-        } catch (e) {
-          errorText.textContent = 'An error occurred during the request.';
-
-          document.querySelector('.weather-box__loader').classList.add('done');
-          document.querySelector('.weather-box__error').style.display = 'block';
+        if (response.ok) {
+          setTimeout(() => {
+            document.querySelector('.weather-widget').classList.add('weather-widget_done');
+            loader.classList.add('weather-widget__loader_done');
+          }, 500);
         }
+      } catch (e) {
+        error.textContent = 'An error occurred during the request.';
+
+        loader.classList.add('weather-widget__loader_done');
+        error.style.display = 'block';
       }
+    }
 
-      main(uri);
-    }, e => {
-      if (e.PERMISSION_DENIED) {
-        errorText.textContent = 'You must have location enabled.';
+    main(uri);
+  }, e => {
+    if (e.PERMISSION_DENIED) {
+      error.textContent = 'You must have location enabled.';
 
-        document.querySelector('.weather-box__loader').classList.add('done');
-        document.querySelector('.weather-box__error').style.display = 'block';
-      }
-    });
-  } else {
-    errorText.textContent = 'Your browser doesn\'t support location!';
+      loader.classList.add('weather-widget__loader_done');
+      error.style.display = 'block';
+    }
+  });
+} else {
+  error.textContent = 'Your browser doesn\'t support location!';
 
-    document.querySelector('.weather-box__loader').classList.add('done');
-    document.querySelector('.weather-box__error').style.display = 'block';
-  }
-});
+  loader.classList.add('weather-widget__loader_done');
+  error.style.display = 'block';
+}

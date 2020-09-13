@@ -8,15 +8,15 @@ The application uses the [Dark Sky API](https://darksky.net/dev) and Gulp to com
 
 ### Installing
 
-Download or clone the repository and run
+Download or clone the repository and run:
 
 ```bash
 npm i
 npm start
 ```
 
-_After these commands, the application will be available at [localhost:3000](http://localhost:3000/), but don't forget in app/js/index.js on the 3rd line to assign the value of the [Dark Sky API](https://darksky.net/dev) secret key to the variable «APIKey»._
+_After these commands, the application will be available at [localhost:3000](http://localhost:3000/), but don't forget in app/js/index.js on the 3rd line to assign the value of the [Dark Sky API](https://darksky.net/dev) secret key to the variable «apiKey»._
 
 ```JavaScript
-const APIKey = '';  // Enter the Dark Sky API secret key here
+const apiKey = '';  // Enter the Dark Sky API secret key here
 ```
