@@ -1,6 +1,6 @@
 # Simple weather widget
 
-![Screenshot](https://github.com/quertc/weather-widget/blob/master/preview.PNG)
+![Screenshot](https://github.com/quertc/weather-widget/blob/master/preview.png)
 
 ## Description
 
