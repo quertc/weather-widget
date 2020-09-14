@@ -4,7 +4,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync');
 
 gulp.task('sass', () => gulp.src(['app/sass/**/*.sass', 'app/sass/**/*.scss'])
-  .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+  .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
   .pipe(autoprefixer())
   .pipe(gulp.dest('app/css'))
   .pipe(browserSync.reload({ stream: true })));

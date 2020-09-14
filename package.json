@@ -1,14 +1,10 @@
 {
   "name": "weather-widget",
   "version": "1.0.0",
-  "description": "Simple weather widget",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "start": "gulp"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.12",
     "eslint": "^7.2.0",
@@ -17,9 +13,5 @@
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-sass": "^4.1.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 4 versions"
-  ]
+  }
 }
