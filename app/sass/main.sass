@@ -19,22 +19,22 @@ body
   width: 400px
   height: 218px
   padding: 10px
-  border-radius: 8px
-  box-shadow: 0 16px 62px rgba(0, 0, 0, .05)
-  background: #fff
   cursor: pointer
   transition: box-shadow .3s, transform .3s
+  border-radius: 8px
+  background: #fff
+  box-shadow: 0 16px 62px rgba(0, 0, 0, .05)
   &__loader
     position: absolute
     top: 50%
     left: 50%
     width: 45px
     height: 45px
-    border: 4px solid transparent
-    border-radius: 50%
-    border-top-color: #888
     transform: translate(-50%, -50%)
     animation: 1.5s spin infinite linear
+    border: 4px solid transparent
+    border-top-color: #888
+    border-radius: 50%
     &_done
       display: none
   &__country
@@ -54,18 +54,18 @@ body
     position: absolute
     display: none
     padding: 5px
-    color: #f93838
     text-align: center
+    color: #f93838
   &:hover
-    box-shadow: 0 6px 11px rgba(0, 0, 0, .05)
     transform: translateY(-2.3px)
+    box-shadow: 0 6px 11px rgba(0, 0, 0, .05)
   &::before
     content: ""
     position: absolute
     width: 100%
     height: 100%
-    background: #fff
     border-radius: 8px
+    background: #fff
   &_done::before
     display: none
 
